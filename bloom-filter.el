@@ -22,6 +22,9 @@
 
 ;;; Commentary:
 
+;; Bloom filter implementation in Emacs Lisp
+;;  - https://en.wikipedia.org/wiki/Bloom_filter
+
 ;;; Code:
 
 (require 'cl-lib)
