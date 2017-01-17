@@ -24,13 +24,14 @@
 
 (ert-deftest bloom-filter ()
   "bloom filter test"
-  (let ((bfilter (bloom-filter 100 0.01)))
+  (let ((bfilter (bloom-filter 100 0.5)))
     (cl-loop for i from 1 to 50
              do
              (bloom-filter-add bfilter i))
     (should (bloom-filter-search bfilter 1))
     (should (bloom-filter-search bfilter 50))
-    (should-not (bloom-filter-search bfilter 51))
-    (should-not (bloom-filter-search bfilter 9999))))
+    ;; In most case, search returns nil
+    (should (cl-loop for i from 51 to 150
+                     thereis (bloom-filter-search bfilter i)))))
 
 ;;; test.el ends here
