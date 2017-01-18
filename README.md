@@ -12,6 +12,20 @@
     (bloom-filter-search bfilter 51)) ;; => In most case, nil
 ```
 
+## Interfaces
+
+#### `(bloom-filter keys error-rate)`
+
+Returns bloom filter instance whose false positive is `error-rate`.
+
+#### `(bloom-filter-add bfilter object)`
+
+Add object to filter
+
+#### `(bloom-filter-search bfilter object)`
+
+Search object from `bfilter`.
+
 ## References
 - https://en.wikipedia.org/wiki/Bloom_filter
 - http://www.perl.com/pub/2004/04/08/bloom_filters.html
